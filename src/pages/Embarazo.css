@@ -1,0 +1,52 @@
+.embarazo-page {
+  width: 100%;
+}
+
+.embarazo-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem var(--padding-mobile);
+  margin-bottom: 2rem;
+}
+
+.embarazo-intro-container {
+  max-width: var(--max-width-mobile);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: left;
+}
+
+.embarazo-intro h1 {
+  color: var(--color-black);
+}
+
+.embarazo-intro p {
+  color: var(--color-black);
+  line-height: 1.6;
+}
+
+.embarazo-intro h3 {
+  color: var(--color-black);
+  margin: 1rem 0;
+}
+
+@media (min-width: 800px) {
+  .embarazo-intro {
+    padding: 3rem var(--padding-tablet);
+  }
+
+  .embarazo-intro-container {
+    max-width: 550px;
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .embarazo-intro {
+    padding: 3rem var(--padding-desktop);
+  }
+}

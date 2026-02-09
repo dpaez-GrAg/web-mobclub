@@ -1,0 +1,141 @@
+.section-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem var(--padding-mobile);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-layout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-image, none);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(var(--bg-grayscale, 0%));
+  opacity: var(--bg-opacity, 1);
+  z-index: 0;
+}
+
+.section-container {
+  max-width: var(--max-width-mobile);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.section-header h4 {
+  margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+  color: var(--color-black);
+}
+
+.section-header p {
+  color: var(--color-black);
+}
+
+.section-column-1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-column-2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tablet and above */
+@media (min-width: 800px) {
+  .section-layout {
+    padding: 4rem var(--padding-tablet);
+  }
+
+  .section-container {
+    max-width: var(--max-width-tablet);
+    flex-direction: row;
+    gap: 3rem;
+    align-items: stretch;
+  }
+
+  .section-column-1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .section-column-2 {
+    flex: 1;
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .section-layout {
+    padding: 5rem var(--padding-desktop);
+  }
+
+  .section-container {
+    max-width: var(--max-width-desktop);
+    gap: 2rem;
+  }
+
+  .section-column-1 {
+    gap: 2rem;
+  }
+
+  .section-column-2 {
+    gap: 1.5rem;
+  }
+}
+
+/* Section copy formatting */
+.section-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-copy p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Section CTA */
+.section-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.section-cta p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}

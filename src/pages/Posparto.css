@@ -1,0 +1,125 @@
+.posparto-page {
+  width: 100%;
+}
+
+.posparto-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem var(--padding-mobile);
+}
+
+.posparto-intro-container {
+  max-width: var(--max-width-mobile);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: left;
+}
+
+.posparto-intro p {
+  line-height: 1.6;
+}
+
+.posparto-intro h3 {
+  margin: 1rem 0;
+}
+
+.posparto-intro ul {
+  color: var(--color-black);
+  line-height: 1.6;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.posparto-intro li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: var(--tracking-0);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.formulario-tally {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-mobile) 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  clip-path: inset(0 0 100% 0);
+  transition:
+    clip-path 0.15s ease-out,
+    height 0.5s ease-out;
+}
+
+.formulario-tally-open {
+  height: auto;
+  padding: 0 var(--padding-mobile) 3rem;
+  pointer-events: all;
+  clip-path: inset(0 0 0 0);
+  transition:
+    clip-path 0.5s ease-out,
+    height 0.5s ease-out;
+}
+
+.formulario-tally iframe {
+  max-width: var(--max-width-mobile);
+  width: 100%;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.formulario-tally-open iframe {
+  opacity: 1;
+}
+
+/* Tablet and above */
+@media (min-width: 800px) {
+  .posparto-intro {
+    padding: 1rem var(--padding-tablet);
+  }
+
+  .posparto-intro-container {
+    max-width: 550px;
+    gap: 4rem;
+  }
+
+  .formulario-tally {
+    padding: 0 var(--padding-tablet) 4rem;
+  }
+
+  .formulario-tally iframe {
+    max-width: 550px;
+  }
+
+  .posparto-intro li {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .posparto-intro {
+    padding: 3rem var(--padding-desktop);
+  }
+
+  .posparto-intro-container {
+    gap: 3rem;
+  }
+
+  .formulario-tally {
+    padding: 0 var(--padding-desktop) 5rem;
+  }
+
+  .formulario-tally iframe {
+    max-width: var(--max-width-desktop);
+  }
+}

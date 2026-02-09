@@ -1,0 +1,26 @@
+.typewriter {
+  display: inline-block;
+}
+
+.typewriter-line {
+  display: inline;
+}
+
+.typewriter-word {
+  opacity: 0;
+  transform: translateY(0.3em);
+  filter: blur(5px);
+  display: inline-block;
+}
+
+.typewriter-word-visible {
+  animation: wordIn 1s ease forwards;
+}
+
+@keyframes wordIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}

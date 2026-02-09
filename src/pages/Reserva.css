@@ -1,0 +1,94 @@
+.reserva-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.reserva-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem var(--padding-mobile);
+  width: 100%;
+  max-width: var(--max-width-tablet);
+}
+
+.reserva-intro-container {
+  max-width: var(--max-width-mobile);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.reserva-intro h1 {
+  color: var(--color-black);
+}
+
+.reserva-intro p {
+  color: var(--color-black);
+  line-height: 1.6;
+}
+
+.reserva-iframe-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-mobile);
+  width: 100%;
+  min-height: 800px;
+  margin-bottom: 4rem;
+}
+
+.reserva-iframe-section iframe {
+  max-width: var(--max-width-mobile);
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet and above */
+@media (min-width: 800px) {
+  .reserva-intro {
+    padding: 1rem var(--padding-tablet);
+  }
+
+  .reserva-intro-container {
+    max-width: var(--max-width-tablet);
+    gap: 1.5rem;
+  }
+
+  .reserva-iframe-section {
+    padding: 0 var(--padding-tablet);
+  }
+
+  .reserva-iframe-section iframe {
+    max-width: var(--max-width-tablet);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .reserva-intro {
+    padding: 5rem var(--padding-desktop);
+  }
+
+  .reserva-intro-container {
+    max-width: var(--max-width-desktop);
+    gap: 2rem;
+  }
+
+  .reserva-iframe-section {
+    padding: 0 var(--padding-desktop);
+  }
+
+  .reserva-iframe-section iframe {
+    max-width: var(--max-width-desktop);
+  }
+}
