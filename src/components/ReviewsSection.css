@@ -74,6 +74,19 @@
   font-size: 14px;
 }
 
+.reviews-image {
+  width: 100%;
+  max-width: var(--max-width-tablet);
+}
+
+.reviews-image video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
 /* Tablet and above */
 @media (min-width: 800px) {
   .reviews-section {

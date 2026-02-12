@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Time, Ticket, CornerDownRight, Plan } from "@icon-park/react";
 import TypewriterText from "./TypewriterText";
-import peopleSub from "../assets/images/PEOPLE_1.jpeg";
-import peopleBono from "../assets/images/PEOPLE_2.jpg";
+import peopleBono from "../assets/images/PEOPLE_9byn.jpg";
+import peopleSub from "../assets/images/PEOPLE_4byn.jpeg";
 import "./PricingSection.css";
 
 const tabs = [

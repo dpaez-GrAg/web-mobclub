@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Like } from "@icon-park/react";
 import TypewriterText from "./TypewriterText";
 import avatarAsun from "../assets/images/retratos/RP1_asun.jpeg";
@@ -8,6 +8,7 @@ import avatarNuria from "../assets/images/retratos/RP4_nuria.jpeg";
 import avatarIria from "../assets/images/retratos/RP5_iria.jpeg";
 import avatarJulia from "../assets/images/retratos/RP6_julia.jpeg";
 import "./ReviewsSection.css";
+const reviewsVideo = "https://cdn2.gridded.agency/videos/mobclub/video_01_lite.mp4";
 
 const reviews = [
   {
@@ -43,6 +44,52 @@ const reviews = [
 ];
 
 const ReviewsSection = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    let loaded = false;
+
+    // Start fetching the video when ~800px away
+    const preloadObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !loaded) {
+          loaded = true;
+          video.src = reviewsVideo;
+          video.load();
+          preloadObserver.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+
+    // Play/pause when in view
+    const playObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (video.readyState >= 3) {
+            video.play();
+          } else {
+            video.addEventListener("canplay", () => video.play(), { once: true });
+          }
+        } else {
+          video.pause();
+        }
+      },
+      { rootMargin: "200px 0px" },
+    );
+
+    preloadObserver.observe(video);
+    playObserver.observe(video);
+
+    return () => {
+      preloadObserver.disconnect();
+      playObserver.disconnect();
+    };
+  }, []);
+
   return (
     <section className="reviews-section">
       <div className="reviews-container">
@@ -69,6 +116,9 @@ const ReviewsSection = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div className="reviews-image">
+          <video ref={videoRef} muted loop playsInline preload="auto" />
         </div>
       </div>
     </section>

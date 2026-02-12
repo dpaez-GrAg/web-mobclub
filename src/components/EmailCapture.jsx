@@ -25,7 +25,7 @@ const EmailCapture = ({ buttonText = "Enviar", tag = "" }) => {
           source: window.location.hostname,
         };
 
-        const response = await fetch("https://n8n.gridded.agency/webhook/b05a4a9c-059c-4deb-940f-8dcf2062c2f8", {
+        const response = await fetch("https://n8n.gridded.agency/webhook/mobclubEmailCapture", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

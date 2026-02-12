@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import heroImage from "../assets/images/hero.jpg";
+import heroImage from "../assets/images/DETAIL_01.jpeg";
 import oyshoLogo from "../assets/logos/OYSHO PARTNER STUDIO.svg";
 import TypewriterText from "./TypewriterText";
 import "./Hero.css";
@@ -36,7 +36,7 @@ const Hero = () => {
         </div>
 
         <div className="hero-img">
-          <img src={heroImage} alt="MOBCLUB Pilates" />
+          <img src={heroImage} alt="Profesora indicando a alumna de pilates" />
         </div>
       </div>
 
