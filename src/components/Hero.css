@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem var(--padding-mobile);
+  padding-bottom: 4rem;
   gap: 2rem;
   overflow-x: hidden;
 }
@@ -106,6 +107,7 @@
 @media (min-width: 800px) {
   .hero {
     padding: 2rem var(--padding-tablet);
+    padding-bottom: 4rem;
   }
 
   .hero-top {
@@ -121,6 +123,8 @@
   .hero {
     flex-direction: column;
     padding: 2rem var(--padding-desktop);
+    padding-bottom: 4rem;
+
     max-width: var(--max-width-desktop);
     margin: 0 auto;
     gap: 3rem;

@@ -17,9 +17,9 @@ const pricingData = {
     title: "Suscripción",
     subtitle: "Tu sesión confirmada cada semana",
     prices: [
-      { amount: "180 €", description: "Una sesión" },
-      { amount: "340 €", description: "Dos sesiones" },
-      { amount: "500 €", description: "Tres sesiones" },
+      { amount: "180 €", description: "Una sesión a la semana" },
+      { amount: "340 €", description: "Dos sesiones a la semana" },
+      { amount: "500 €", description: "Tres sesiones a la semana" },
     ],
   },
   bonos: {

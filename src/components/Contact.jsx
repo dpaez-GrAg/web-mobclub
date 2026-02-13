@@ -50,7 +50,7 @@ const Contact = () => {
 
           <ContactCard
             icon={<Local size={24} />}
-            title="Visítanos"
+            title="Horario de apertura"
             description={
               <>
                 De lunes a viernes de 7:00 a 22:00.

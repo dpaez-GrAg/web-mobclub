@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import heroImage from "../assets/images/DETAIL_01.jpeg";
 import oyshoLogo from "../assets/logos/OYSHO PARTNER STUDIO.svg";
 import TypewriterText from "./TypewriterText";
+import EmailCapture from "./EmailCapture";
 import "./Hero.css";
 
 const Hero = () => {
@@ -24,7 +25,7 @@ const Hero = () => {
             <p>
               Diseñadas especialmente para ti.
               <br />
-              Planificada y adaptada a tu cuerpo, a tu momento vital y a cómo te encuentras ese día.
+              Planificada y adaptada a tu cuerpo, a tu momento vital y a cómo te encuentras cada día.
             </p>
           </div>
 
@@ -84,6 +85,10 @@ const Hero = () => {
           <br />
           Que es mejor que la experimentes por ti mismo.
         </p>
+
+        <h3>Lo único que debes hacer es...</h3>
+
+        <EmailCapture buttonText="Empezar" tag="suscribete" />
       </div>
     </section>
   );

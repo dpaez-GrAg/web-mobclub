@@ -99,7 +99,7 @@ const ReviewsSection = () => {
             Reseñas
           </h4>
           <TypewriterText
-            lines={["Y esto es lo que nuestros", "socios dicen de nosotros"]}
+            lines={["Esto es lo que nuestros", "socios dicen de nosotros"]}
             as="h2"
             delay={0.08}
             triggerOnScroll={true}
