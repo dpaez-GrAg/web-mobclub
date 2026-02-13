@@ -55,8 +55,13 @@ const PricingSection = () => {
             Tanto si tienes una rutina que te permite acudir a clase con regularidad, como si necesitas flexibilidad
             total, en Mobclub tenemos el plan perfecto para ti.
           </p>
+          <p>
+            Lunes a viernes de 7:00 a 22:00
+            <br />
+            Sábado de 9:00 a 14:00
+          </p>
+          <p>Clases cada hora</p>
         </div>
-
         <div className="pricing-tabs">
           {tabs.map((tab) => (
             <button
@@ -93,15 +98,6 @@ const PricingSection = () => {
               Reservar
             </Link>
           </div>
-        </div>
-        <div className="pricing-footer">
-          <h3>Horario</h3>
-          <p>
-            Lunes a viernes de 7:00 a 22:00
-            <br />
-            Sábado de 9:00 a 14:00
-          </p>
-          <p>Clases cada hora</p>
         </div>
       </div>
     </section>

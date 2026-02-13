@@ -25,7 +25,7 @@ const Hero = () => {
             <p>
               Diseñadas especialmente para ti.
               <br />
-              Planificada y adaptada a tu cuerpo, a tu momento vital y a cómo te encuentras cada día.
+              Planificadas y adaptadas a tu cuerpo, a tu momento vital y a cómo te encuentras cada día.
             </p>
           </div>
 
