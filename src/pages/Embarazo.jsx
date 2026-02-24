@@ -36,7 +36,7 @@ const Embarazo = () => {
           </p>
 
           <h3>
-            Es más, bien planteado, te ayudará a controlar el peso, reducir el dolor lumbar y evitar los bajones,
+            Hacer ejercicio bien planteado te ayudará a controlar el peso, reducir el dolor lumbar y evitar los bajones,
             manteniendo estables tus niveles de energía.
           </h3>
 
