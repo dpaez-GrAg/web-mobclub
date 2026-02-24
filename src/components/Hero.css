@@ -5,7 +5,7 @@
   justify-content: center;
   padding: 1rem var(--padding-mobile);
   padding-bottom: 4rem;
-  gap: 2rem;
+  gap: 4rem;
   overflow-x: hidden;
 }
 

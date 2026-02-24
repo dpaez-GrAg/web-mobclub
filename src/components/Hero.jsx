@@ -16,7 +16,7 @@ const Hero = () => {
             <p>
               No por esforzarte al máximo en tus entrenamientos vas a obtener mejores resultados.
               <br />
-              Tampoco es necesario terminar tan cansado que el resto del día vaya cuesta arriba.
+              Tampoco es necesario terminar tan cansada que el resto del día vaya cuesta arriba.
               <br />Y tampoco necesitas pasar cada día dos horas en el gym.
             </p>
 
@@ -51,7 +51,7 @@ const Hero = () => {
           realidad.
         </p>
 
-        <p>Por eso diseñamos nuestro método MOB. Muy efectivo para personas con muy poco tiempo.</p>
+        <p>Por ello diseñamos nuestro método MOB. Muy efectivo para personas con muy poco tiempo.</p>
 
         <p>
           No trabajamos entrenamientos genéricos.
@@ -76,14 +76,14 @@ const Hero = () => {
         <p>
           Dejando atrás dolores o molestias que <em>no son normales de la edad</em>.
           <br />
-          Te ayudamos a prepararte para una nueva etapa. 🤰
+          Te ayudamos a prepararte para una nueva etapa🤰.
           <br />O trabajamos para recuperar tu cuerpo después.
         </p>
 
         <p>
           La sensación que tendrás en tu cuerpo después de cada clase es tan difícil de describir.
           <br />
-          Que es mejor que la experimentes por ti mismo.
+          Que es mejor que la experimentes por ti misma.
         </p>
 
         <h3>Lo único que debes hacer es...</h3>
