@@ -26,7 +26,7 @@ const Posparto = () => {
   return (
     <div className="posparto-page">
       <SEO
-        title="Recuperación posparto con criterio | Mobclub A Coruña"
+        title="Recuperación posparto Pilates | Mobclub A Coruña"
         description="Rehabilitación posparto individual para recuperar abdomen, suelo pélvico y confianza corporal con un plan adaptado a tu cuerpo."
         ogTitle="Tu cuerpo no vuelve solo después de ser madre"
         ogDescription="Recuperación posparto individual para volver a sentir control, seguridad y confianza en tu cuerpo, aunque hayan pasado años."

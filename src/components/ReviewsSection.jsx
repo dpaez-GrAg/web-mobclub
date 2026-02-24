@@ -118,7 +118,7 @@ const ReviewsSection = () => {
           ))}
         </div>
         <div className="reviews-image">
-          <video ref={videoRef} muted loop playsInline preload="auto" />
+          <video ref={videoRef} src={reviewsVideo} muted loop playsInline preload="auto" />
         </div>
       </div>
     </section>

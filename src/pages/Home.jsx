@@ -5,6 +5,7 @@ import ReviewsSection from "../components/ReviewsSection";
 import EmbarazoSection from "../components/EmbarazoSection";
 import PospartoSection from "../components/PospartoSection";
 import PricingSection from "../components/PricingSection";
+import ScheduleSection from "../components/ScheduleSection";
 import Contact from "../components/Contact";
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
       <MethodSection />
       <ReviewsSection />
       <PricingSection />
+      <ScheduleSection />
       <EmbarazoSection />
       <PospartoSection />
       <Contact />
