@@ -234,7 +234,7 @@ const Legal = () => {
           <h1>✋ Una última cosa</h1>
           <p>Si te has leído esto, imagina lo que disfrutarás leyendo mi newsletter.</p>
 
-          <EmailCapture buttonText="Apúntate aquí" tag="legal-lead-magnet" />
+          <EmailCapture buttonText="Apúntate aquí" tag="legal" />
         </div>
       </div>
     </div>
