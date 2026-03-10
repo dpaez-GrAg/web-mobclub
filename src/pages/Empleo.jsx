@@ -1,4 +1,5 @@
 import EmailCapture from "../components/EmailCapture";
+import EmailPhoneCapture from "../components/EmailPhoneCapture";
 import "./Empleo.css";
 
 const Empleo = () => {
@@ -32,7 +33,7 @@ const Empleo = () => {
         </div>
         <div className="email-capture-container">
           <h2>👇 Aprovecha esta oportunidad</h2>
-          <EmailCapture buttonText="Apúntate aquí" tag="empleo" />
+          <EmailPhoneCapture buttonText="Apúntate aquí" tag="empleo" />
         </div>
       </div>
     </div>
