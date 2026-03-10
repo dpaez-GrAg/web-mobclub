@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Legal from "./pages/Legal";
+import Empleo from "./pages/Empleo";
 import Confirmacion from "./pages/Confirmacion";
 import Bienvenida from "./pages/Bienvenida";
 import NotFound from "./pages/NotFound";
@@ -15,7 +16,7 @@ import "./styles/global.css";
 
 function AppContent() {
   const location = useLocation();
-  const validPaths = ["/", "/legal", "/confirmacion", "/bienvenida", "/embarazo", "/posparto", "/reserva"];
+  const validPaths = ["/", "/legal", "/empleo", "/confirmacion", "/bienvenida", "/embarazo", "/posparto", "/reserva"];
   const showNav =
     validPaths.includes(location.pathname) || !validPaths.some((path) => location.pathname.startsWith(path));
 
@@ -41,6 +42,7 @@ function AppContent() {
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/legal" element={<Legal />} />
+          <Route path="/empleo" element={<Empleo />} />
           <Route path="/confirmacion" element={<Confirmacion />} />
           <Route path="/bienvenida" element={<Bienvenida />} />
           <Route path="/embarazo" element={<Embarazo />} />
