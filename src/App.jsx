@@ -11,13 +11,14 @@ import Embarazo from "./pages/Embarazo";
 import Posparto from "./pages/Posparto";
 import Reserva from "./pages/Reserva";
 import TallerAlimentacionMenopausia from "./pages/TallerAlimentacionMenopausia";
+import ConfirmacionTaller from "./pages/ConfirmacionTaller";
 import PageTransition from "./components/PageTransition";
 import Footer from "./components/Footer";
 import "./styles/global.css";
 
 function AppContent() {
   const location = useLocation();
-  const validPaths = ["/", "/legal", "/empleo", "/confirmacion", "/bienvenida", "/embarazo", "/posparto", "/reserva", "/talleralimentacionmenopausia"];
+  const validPaths = ["/", "/legal", "/empleo", "/confirmacion", "/bienvenida", "/embarazo", "/posparto", "/reserva", "/talleralimentacionmenopausia", "/confirmaciontaller"];
   const showNav =
     validPaths.includes(location.pathname) || !validPaths.some((path) => location.pathname.startsWith(path));
 
@@ -50,6 +51,7 @@ function AppContent() {
           <Route path="/posparto" element={<Posparto />} />
           <Route path="/reserva" element={<Reserva />} />
           <Route path="/talleralimentacionmenopausia" element={<TallerAlimentacionMenopausia />} />
+          <Route path="/confirmaciontaller" element={<ConfirmacionTaller />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>
