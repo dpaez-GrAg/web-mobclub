@@ -1,7 +1,14 @@
 [build]
-  command = "npm run build"
+  # Instala Chromium (para el prerender) y luego build + prerender.
+  # PLAYWRIGHT_BROWSERS_PATH=0 guarda el navegador en node_modules → lo cachea Netlify.
+  command = "npx playwright install chromium && npm run build"
   publish = "dist"
 
+[build.environment]
+  PLAYWRIGHT_BROWSERS_PATH = "0"
+
+# Fallback SPA (sin `!`): Netlify sirve primero el fichero prerenderizado de cada
+# ruta (dist/<ruta>/index.html) y solo cae a index.html si no existe fichero.
 [[redirects]]
   from = "/*"
   to = "/index.html"

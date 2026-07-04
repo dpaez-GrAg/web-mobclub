@@ -27,6 +27,7 @@
 
 .reserva-intro h1 {
   color: var(--color-black);
+  font-size: 36px;
 }
 
 .reserva-intro p {
@@ -57,6 +58,11 @@
 @media (min-width: 800px) {
   .reserva-intro {
     padding: 1rem var(--padding-tablet);
+  }
+
+  .reserva-intro h1 {
+    font-size: 54px;
+    line-height: 57px;
   }
 
   .reserva-intro-container {

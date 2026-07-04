@@ -44,7 +44,7 @@ const Posparto = () => {
             No todos los partos son iguales.
             <br />Y tampoco todas las recuperaciones posparto son iguales.
           </p>
-          <h2>Claro que es posible recuperar tu cuerpo, en pocas semanas, con una buena rehabilitación posparto</h2>
+          <h1>Claro que es posible recuperar tu cuerpo, en pocas semanas, con una buena rehabilitación posparto</h1>
           <p>
             Pero antes, déjame decirte <strong>que NO debes hacer</strong> si quieres volver a usar tu ropa interior
             antes de que tu bebé dé sus primeros pasos

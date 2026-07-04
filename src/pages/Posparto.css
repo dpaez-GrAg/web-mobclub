@@ -23,6 +23,10 @@
   line-height: 1.6;
 }
 
+.posparto-intro h1 {
+  font-size: 36px;
+}
+
 .posparto-intro h3 {
   margin: 1rem 0;
 }
@@ -84,6 +88,11 @@
 @media (min-width: 800px) {
   .posparto-intro {
     padding: 1rem var(--padding-tablet);
+  }
+
+  .posparto-intro h1 {
+    font-size: 54px;
+    line-height: 57px;
   }
 
   .posparto-intro-container {

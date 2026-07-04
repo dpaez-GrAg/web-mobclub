@@ -36,6 +36,166 @@
     />
     <meta name="twitter:image" content="https://mobclub.es/og-image.jpg" />
 
+    <!-- Datos estructurados: negocio local (servido sin JS para crawlers y LLMs) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HealthClub",
+        "@id": "https://mobclub.es/#business",
+        "name": "Mobclub",
+        "legalName": "Mobclub S.L.",
+        "description": "Centro premium de pilates con máquinas en A Coruña. Clases individuales (entrenamiento personal) de unos 50 minutos, cada hora, en horario ininterrumpido de 7:00 a 22:00 de lunes a viernes y sábados por la mañana. Cada sesión se adapta a la medida del cliente para que sea lo más efectiva posible. Dos modalidades: suscripciones (1 o 2 clases por semana, con reserva habitual) desde 180 €/mes, y bonos de clases para usar con total flexibilidad. Puedes modificar tus clases hasta una hora antes del inicio y hacer una primera sesión sin compromiso.",
+        "slogan": "Si tu cuerpo está bien, tu vida funciona mejor",
+        "url": "https://mobclub.es/",
+        "logo": "https://mobclub.es/mob.png",
+        "image": "https://mobclub.es/og-image.jpg",
+        "telephone": "+34623769652",
+        "email": "info@mobclub.es",
+        "taxID": "B56916257",
+        "vatID": "ESB56916257",
+        "priceRange": "€€€",
+        "currenciesAccepted": "EUR",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "San Andrés 145",
+          "postalCode": "15003",
+          "addressLocality": "A Coruña",
+          "addressRegion": "A Coruña",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.368346,
+          "longitude": -8.405204
+        },
+        "hasMap": "https://maps.app.goo.gl/zkZqYTHs4hLPu3UL6",
+        "sameAs": [
+          "https://www.instagram.com/mobclubpilates/",
+          "https://maps.app.goo.gl/zkZqYTHs4hLPu3UL6"
+        ],
+        "areaServed": { "@type": "City", "name": "A Coruña" },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "07:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "14:00"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Clases de Pilates con máquinas",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Suscripción · 1 sesión a la semana",
+              "category": "Suscripción mensual",
+              "price": "180",
+              "priceCurrency": "EUR",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Pilates con máquinas — 1 sesión semanal",
+                "serviceType": "Clase individual de pilates con máquinas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Suscripción · 2 sesiones a la semana",
+              "category": "Suscripción mensual",
+              "price": "340",
+              "priceCurrency": "EUR",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Pilates con máquinas — 2 sesiones semanales",
+                "serviceType": "Clase individual de pilates con máquinas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Suscripción · 3 sesiones a la semana",
+              "category": "Suscripción mensual",
+              "price": "500",
+              "priceCurrency": "EUR",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Pilates con máquinas — 3 sesiones semanales",
+                "serviceType": "Clase individual de pilates con máquinas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Bono · 1 sesión",
+              "category": "Bono de clases",
+              "price": "50",
+              "priceCurrency": "EUR",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bono de 1 sesión de pilates con máquinas",
+                "serviceType": "Clase individual de pilates con máquinas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Bono · 5 sesiones",
+              "category": "Bono de clases",
+              "price": "200",
+              "priceCurrency": "EUR",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bono de 5 sesiones de pilates con máquinas",
+                "serviceType": "Clase individual de pilates con máquinas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Bono · 10 sesiones",
+              "category": "Bono de clases",
+              "price": "350",
+              "priceCurrency": "EUR",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bono de 10 sesiones de pilates con máquinas",
+                "serviceType": "Clase individual de pilates con máquinas"
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Primera sesión sin compromiso",
+              "description": "Sesión de valoración individual. Se abona como clase suelta o se incluye en un bono si decides continuar.",
+              "price": "50",
+              "priceCurrency": "EUR",
+              "url": "https://reservaweb.viday.es/#/client/6419ed1707f10931823438c1",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Primera sesión de valoración",
+                "serviceType": "Clase individual de pilates con máquinas"
+              }
+            }
+          ]
+        },
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "name": "Reservar clase",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://reservaweb.viday.es/#/client/6419ed1707f10931823438c1",
+            "actionPlatform": [
+              "https://schema.org/DesktopWebPlatform",
+              "https://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": { "@type": "Reservation", "name": "Reserva de clase de pilates" }
+        }
+      }
+    </script>
+    <!-- Fin datos estructurados -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet" />

@@ -17,7 +17,7 @@ const Reserva = () => {
       />
       <section className="reserva-intro reveal" ref={revealRef}>
         <div className="reserva-intro-container">
-          <h2>Reserva tu primera sesión</h2>
+          <h1>Reserva tu primera sesión</h1>
           <p>
             No es una clase convencional.
             <br />

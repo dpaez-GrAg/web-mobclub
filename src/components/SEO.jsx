@@ -13,6 +13,16 @@ function setMeta(attr, key, value) {
   el.setAttribute("content", value);
 }
 
+function setCanonical(href) {
+  let el = document.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", "canonical");
+    document.head.appendChild(el);
+  }
+  el.setAttribute("href", href);
+}
+
 export default function SEO({
   title,
   description,
@@ -22,14 +32,17 @@ export default function SEO({
   path = "/",
 }) {
   useEffect(() => {
+    const canonicalUrl = `${SITE_URL}${path}`;
+
     document.title = title;
 
     setMeta("name", "description", description);
+    setCanonical(canonicalUrl);
 
     setMeta("property", "og:title", ogTitle || title);
     setMeta("property", "og:description", ogDescription || description);
     setMeta("property", "og:image", ogImage);
-    setMeta("property", "og:url", `${SITE_URL}${path}`);
+    setMeta("property", "og:url", canonicalUrl);
     setMeta("property", "og:type", "website");
     setMeta("property", "og:site_name", "Mobclub");
 
