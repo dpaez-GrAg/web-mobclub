@@ -270,6 +270,10 @@ export const routes = [
     indexable: true,
     nav: true,
   },
+    // Páginas de campaña ya caducadas (el taller fue el 17 de mayo). Se quedan
+    // publicadas para quien tenga el enlace, pero fuera del índice: son ventas
+    // pasadas compitiendo por atención con las páginas que sí deben posicionar.
+    // Decisión de Diego, 11-09-2026.
   {
     id: "tallerAlimentacionMenopausia",
     path: "/talleralimentacionmenopausia",
@@ -282,7 +286,7 @@ export const routes = [
       "Un taller de tres horas en Mobclub para entender y afrontar la peri y menopausia con criterio. Nutrición, pilates y comunidad.",
     summary: "taller presencial de nutrición y pilates para la peri y menopausia.",
     files: ["src/pages/TallerAlimentacionMenopausia.jsx"],
-    indexable: true,
+    indexable: false,
     nav: true,
   },
   {
@@ -297,7 +301,7 @@ export const routes = [
       "Un manual de 21 páginas donde entenderás exactamente qué está pasando en tu cuerpo y qué hacer al respecto. Herramientas y soluciones reales respaldadas por profesionales.",
     summary: "guía de 21 páginas sobre la menopausia y cómo afrontarla.",
     files: ["src/pages/GuiaTallerMenopausia.jsx"],
-    indexable: true,
+    indexable: false,
     nav: true,
   },
   {
