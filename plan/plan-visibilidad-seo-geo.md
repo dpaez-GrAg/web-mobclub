@@ -77,7 +77,7 @@ Mandan sobre todo lo que sigue. Cualquier página que los incumpla está mal por
 > | N0.3 Fuente única de rutas | ✅ hecho (`src/routes.config.js`, 15 rutas) |
 > | N0.4 `SEO` con noindex/breadcrumb/schema | ✅ hecho |
 > | N0.5 Consolidación de entidad | ✅ hecho (`Person` descartado por decisión de Diego) |
-> | N0.6 Cabeceras de seguridad | ✅ hecho (CSP en Report-Only), pendiente de desplegar |
+> | N0.6 Cabeceras de seguridad | ✅ 6/6 en producción, CSP en **enforce** desde el 11-09-2026 |
 > | N0.7 Sin 301 + sitemap y llms.txt generados | ✅ hecho |
 > | N0.8 Bucle de medición | ❌ descartado |
 
