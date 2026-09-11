@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import SEO from "../components/SEO";
 import useScrollReveal from "../hooks/useScrollReveal";
 import coverImage from "../assets/images/coverguiamenopausia.jpg";
 import "./GuiaTallerMenopausia.css";
@@ -21,13 +20,6 @@ const GuiaTallerMenopausia = () => {
 
   return (
     <div className="guia-taller-menopausia-page">
-      <SEO
-        title="Guía Taller Menopausia | Mobclub A Coruña"
-        description="Entiende el cambio en tu cuerpo, no luches contra él. Guía de 21 páginas con todo lo que necesitas saber sobre la menopausia y cómo afrontarla."
-        ogTitle="Entiende el cambio en tu cuerpo, no luches contra él"
-        ogDescription="Un manual de 21 páginas donde entenderás exactamente qué está pasando en tu cuerpo y qué hacer al respecto. Herramientas y soluciones reales respaldadas por profesionales."
-        path="/guiatallermenopausia"
-      />
 
       <section className="guia-intro reveal" ref={revealRef}>
         <div className="guia-intro-container">

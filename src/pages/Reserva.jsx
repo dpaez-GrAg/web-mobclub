@@ -1,5 +1,4 @@
 import React from "react";
-import SEO from "../components/SEO";
 import useScrollReveal from "../hooks/useScrollReveal";
 import "./Reserva.css";
 
@@ -8,13 +7,6 @@ const Reserva = () => {
 
   return (
     <div className="reserva-page">
-      <SEO
-        title="Reserva tu primera sesión | Mobclub A Coruña"
-        description="Primera sesión de valoración individual para entender tu cuerpo y decidir cómo continuar. Reserva tu cita en Mobclub, A Coruña."
-        ogTitle="Empieza por una primera sesión"
-        ogDescription="No es una clase genérica. Es una valoración individual para entender tu cuerpo y empezar con criterio."
-        path="/reserva"
-      />
       <section className="reserva-intro reveal" ref={revealRef}>
         <div className="reserva-intro-container">
           <h1>Reserva tu primera sesión</h1>

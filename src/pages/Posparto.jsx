@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SEO from "../components/SEO";
 import useScrollReveal from "../hooks/useScrollReveal";
 import "./Posparto.css";
 
@@ -25,13 +24,6 @@ const Posparto = () => {
 
   return (
     <div className="posparto-page">
-      <SEO
-        title="Recuperación posparto Pilates | Mobclub A Coruña"
-        description="Rehabilitación posparto individual para recuperar abdomen, suelo pélvico y confianza corporal con un plan adaptado a tu cuerpo."
-        ogTitle="Tu cuerpo no vuelve solo después de ser madre"
-        ogDescription="Recuperación posparto individual para volver a sentir control, seguridad y confianza en tu cuerpo, aunque hayan pasado años."
-        path="/posparto"
-      />
       <section className="posparto-intro reveal" ref={revealRef}>
         <div className="posparto-intro-container">
           {/*           <p>

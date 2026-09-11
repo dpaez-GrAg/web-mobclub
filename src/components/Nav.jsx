@@ -47,22 +47,22 @@ const Nav = () => {
 
         <ul className="nav-menu-desktop">
           <li>
-            <a href="#precios" onClick={(e) => smoothScrollTo(e, "precios", { navigate })}>
+            <a href="/#precios" onClick={(e) => smoothScrollTo(e, "precios", { navigate })}>
               Planes
             </a>
           </li>
           <li>
-            <a href="#embarazo" onClick={(e) => smoothScrollTo(e, "embarazo", { navigate })}>
+            <a href="/#embarazo" onClick={(e) => smoothScrollTo(e, "embarazo", { navigate })}>
               Embarazo
             </a>
           </li>
           <li>
-            <a href="#posparto" onClick={(e) => smoothScrollTo(e, "posparto", { navigate })}>
+            <a href="/#posparto" onClick={(e) => smoothScrollTo(e, "posparto", { navigate })}>
               Posparto
             </a>
           </li>
           <li>
-            <a href="#contact" onClick={(e) => smoothScrollTo(e, "contact", { navigate })}>
+            <a href="/#contact" onClick={(e) => smoothScrollTo(e, "contact", { navigate })}>
               Contacto
             </a>
           </li>
@@ -84,22 +84,22 @@ const Nav = () => {
 
       <ul className={`nav-menu-mobile ${isMenuOpen ? "nav-menu-mobile-open" : ""}`}>
         <li>
-          <a href="#precios" onClick={(e) => smoothScrollTo(e, "precios", { callback: closeMenu, navigate })}>
+          <a href="/#precios" onClick={(e) => smoothScrollTo(e, "precios", { callback: closeMenu, navigate })}>
             Planes
           </a>
         </li>
         <li>
-          <a href="#embarazo" onClick={(e) => smoothScrollTo(e, "embarazo", { callback: closeMenu, navigate })}>
+          <a href="/#embarazo" onClick={(e) => smoothScrollTo(e, "embarazo", { callback: closeMenu, navigate })}>
             Embarazo
           </a>
         </li>
         <li>
-          <a href="#posparto" onClick={(e) => smoothScrollTo(e, "posparto", { callback: closeMenu, navigate })}>
+          <a href="/#posparto" onClick={(e) => smoothScrollTo(e, "posparto", { callback: closeMenu, navigate })}>
             Posparto
           </a>
         </li>
         <li>
-          <a href="#contact" onClick={(e) => smoothScrollTo(e, "contact", { callback: closeMenu, navigate })}>
+          <a href="/#contact" onClick={(e) => smoothScrollTo(e, "contact", { callback: closeMenu, navigate })}>
             Contacto
           </a>
         </li>

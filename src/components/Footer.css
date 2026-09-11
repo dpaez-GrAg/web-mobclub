@@ -38,6 +38,10 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+  /* El footer es el mapa del sitio: al crecer la lista, los enlaces pasan de
+     línea en vez de desbordar. Con pocos elementos no cambia nada. */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer-nav a {

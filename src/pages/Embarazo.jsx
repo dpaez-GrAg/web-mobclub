@@ -1,5 +1,4 @@
 import React from "react";
-import SEO from "../components/SEO";
 import useScrollReveal from "../hooks/useScrollReveal";
 import "./Embarazo.css";
 import EmailCapture from "../components/EmailCapture";
@@ -9,13 +8,6 @@ const Embarazo = () => {
 
   return (
     <div className="embarazo-page">
-      <SEO
-        title="Ejercicio seguro durante el embarazo | Mobclub A Coruña"
-        description="Movimiento adaptado y pilates individual para embarazadas. Aprende qué ejercicio es seguro durante el embarazo con criterio y acompañamiento profesional."
-        ogTitle="Ejercicio en el embarazo, sin miedo y con criterio"
-        ogDescription="Descubre qué movimiento es seguro durante el embarazo y cómo cuidarte en cada etapa con acompañamiento profesional."
-        path="/embarazo"
-      />
       <section className="embarazo-intro reveal" ref={revealRef}>
         <div className="embarazo-intro-container">
           <h1>

@@ -13,6 +13,12 @@ const Hero = () => {
           <TypewriterText lines={["Si tu cuerpo", "está bien,", "tu vida funciona", "mejor"]} as="h1" delay={0.04} />
 
           <div className="hero-copy">
+            {/* Frase de definición de entidad. Va justo después del H1 a propósito: es el
+                primer texto tras el titular, que es lo que un LLM copia literal cuando le
+                preguntan qué es Mobclub. La misma frase, palabra por palabra, está en la
+                `description` del JSON-LD de index.html y en llms.txt. */}
+            <p>Mobclub es el centro de pilates con máquinas de A Coruña que imparte únicamente sesiones individuales de pilates clásico.</p>
+
             <p>
               No por esforzarte al máximo en tus entrenamientos vas a obtener mejores resultados.
               <br />

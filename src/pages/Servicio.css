@@ -1,0 +1,143 @@
+/* Estilos compartidos por las páginas de servicio (/pilates-reformer-a-coruna y
+   /pilates-suelo-pelvico-a-coruna). Están juntos porque las dos páginas tienen
+   exactamente la misma estructura: intro, bloques con H2, y una FAQ.
+
+   No se introduce ningún elemento visual nuevo: se reutilizan las medidas de
+   .embarazo-intro (mismo ancho de columna, mismo padding, mismo ritmo vertical)
+   y la escala tipográfica de global.css sin tocarla. Lo único que no existía
+   antes en el proyecto es la tabla de precios y el listado, y ambos se resuelven
+   con el mismo gris de línea que ya usa el borde superior del footer. */
+
+.servicio {
+  width: 100%;
+}
+
+.servicio-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem var(--padding-mobile);
+  margin-bottom: 2rem;
+}
+
+.servicio-container {
+  max-width: var(--max-width-mobile);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: left;
+}
+
+.servicio-container h1,
+.servicio-container h2,
+.servicio-container h3,
+.servicio-container p {
+  color: var(--color-black);
+}
+
+.servicio-container p {
+  line-height: 1.6;
+}
+
+/* Bloque = un H2 con sus párrafos. El gap del contenedor separa bloques; este
+   separa lo de dentro de cada uno. */
+.servicio-bloque {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.servicio-entradilla {
+  font-size: 16px;
+}
+
+.servicio-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-left: 1.1rem;
+}
+
+.servicio-lista li {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.servicio-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.servicio-tabla th,
+.servicio-tabla td {
+  font-family: var(--font-inter);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.servicio-tabla th {
+  color: var(--color-gray-dark);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-0);
+}
+
+.servicio-tabla td:last-child,
+.servicio-tabla th:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.servicio-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.servicio-faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Cierre: misma línea superior que .text-informative-subsection, para que la
+   última llamada a la acción se lea como cierre y no como un bloque más. */
+.servicio-cierre {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding-top: 1.5rem;
+  border-top: 0.25pt solid var(--color-black);
+}
+
+/* Los enlaces dentro del texto sí se subrayan: global.css los deja sin
+   decoración, y en un párrafo largo no se distinguirían. */
+.servicio-container p a {
+  text-decoration: underline;
+}
+
+@media (min-width: 800px) {
+  .servicio-intro {
+    padding: 3rem var(--padding-tablet);
+  }
+
+  .servicio-container {
+    max-width: var(--max-width-tablet);
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .servicio-intro {
+    padding: 3rem var(--padding-desktop);
+  }
+}

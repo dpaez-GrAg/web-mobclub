@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generados en cada build por scripts/gen-*.mjs
+public/sitemap.xml
+public/llms.txt
+
+# Capturas de verificación: se regeneran, no van al repo
+plan/capturas/

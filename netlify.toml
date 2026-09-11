@@ -1,15 +1,41 @@
 [build]
   # Instala Chromium (para el prerender) y luego build + prerender.
   # PLAYWRIGHT_BROWSERS_PATH=0 guarda el navegador en node_modules → lo cachea Netlify.
+  # El hook `prebuild` de package.json genera antes public/sitemap.xml y public/llms.txt.
   command = "npx playwright install chromium && npm run build"
   publish = "dist"
 
 [build.environment]
   PLAYWRIGHT_BROWSERS_PATH = "0"
 
-# Fallback SPA (sin `!`): Netlify sirve primero el fichero prerenderizado de cada
-# ruta (dist/<ruta>/index.html) y solo cae a index.html si no existe fichero.
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Sin catch-all `/* → /index.html 200`.
+#
+# El sitio se prerenderiza entero (scripts/prerender.mjs emite un fichero por
+# cada ruta de src/routes.config.js), así que el rewrite no hace falta para que
+# las rutas funcionen. Lo que sí hacía era devolver 200 en CUALQUIER URL
+# inventada — un soft 404 que Google penaliza. Efectos que tenía:
+#
+#   - /llms.txt y /sitemap.xml "existían" devolviendo el HTML de la SPA.
+#   - /bienvenida y las confirmaciones, que no se prerenderizaban, servían el
+#     HTML de la home con el canonical de la home.
+#   - Cualquier escáner externo leía 200 en rutas como /.git/config y concluía
+#     que el directorio estaba expuesto. Era el HTML de la home: un falso
+#     positivo, pero uno que aparecía en auditorías de terceros.
+#
+# Sin él, Netlify sirve dist/404.html con status 404 de forma automática para las
+# rutas que no existen. Ese fichero lo genera la ruta /404 de routes.config.js.
+
+# Cabeceras de seguridad. La CSP va en Report-Only a propósito: el sitio carga
+# GTM, Usercentrics, Meta Pixel, Google Fonts, el mapa de Google y el iframe de
+# reserva de Viday. Primero se recogen las violaciones reales en consola y luego
+# se pasa a `Content-Security-Policy` en un segundo commit; activarla a ciegas
+# puede tirar el banner de consentimiento o la reserva.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.usercentrics.eu https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://n8n.gridded.agency https://*.usercentrics.eu https://*.google-analytics.com https://*.googletagmanager.com https://connect.facebook.net; frame-src https://www.google.com https://reservaweb.viday.es https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"

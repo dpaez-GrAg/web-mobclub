@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import SEO from "../components/SEO";
 import EmailCapture from "../components/EmailCapture";
 import useScrollReveal from "../hooks/useScrollReveal";
 import "./TallerAlimentacionMenopausia.css";
@@ -21,13 +20,6 @@ const TallerAlimentacionMenopausia = () => {
 
   return (
     <div className="taller-alimentacion-menopausia-page">
-      <SEO
-        title="Taller Alimentación Menopausia | Mobclub A Coruña"
-        description="Taller presencial el domingo 17 de mayo. Aprende a adelantarte a la menopausia con nutrición, pilates adaptado y un espacio para compartir con otras mujeres."
-        ogTitle="No puedes esquivar la menopausia, pero sí adelantarte a ella"
-        ogDescription="Un taller de tres horas en Mobclub para entender y afrontar la peri y menopausia con criterio. Nutrición, pilates y comunidad."
-        path="/talleralimentacionmenopausia"
-      />
 
       <section className="taller-intro reveal" ref={revealRef}>
         <div className="taller-intro-container">

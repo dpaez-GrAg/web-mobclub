@@ -1,31 +1,47 @@
 // Prerender del SPA: genera un HTML estático por ruta tras el `vite build`.
 // Sirve `dist/` con el preview de Vite, renderiza cada ruta con Chromium
-// (el mismo navegador que producción) y guarda el DOM ya pintado en
-// dist/<ruta>/index.html. Así crawlers y LLMs reciben el contenido, el H1 y
-// el canonical/meta por página SIN ejecutar JS. La app no se modifica.
+// (el mismo navegador que producción) y guarda el DOM ya pintado. Así crawlers
+// y LLMs reciben el contenido, el H1 y el canonical/meta por página SIN
+// ejecutar JS. La app no se modifica.
+//
+// Dos cosas que antes no hacía:
+//
+//   1. Las rutas salen de src/routes.config.js, no de una lista propia. La
+//      suya se había quedado corta (sin /bienvenida ni las confirmaciones), y
+//      esas rutas no existían como fichero: Netlify las servía con el HTML de
+//      la home por el rewrite catch-all. Un soft 404 con el canonical de la
+//      home.
+//   2. Escribe dist/<ruta>.html en vez de dist/<ruta>/index.html. Con la
+//      carpeta, Netlify respondía 301 de /embarazo a /embarazo/ mientras el
+//      canonical, el sitemap y todos los <Link> internos usaban la forma sin
+//      barra: cada rastreo pagaba un redirect y recibía dos señales en
+//      conflicto. Con el fichero plano, /embarazo responde 200 directo.
 
 import { preview } from "vite";
 import { chromium } from "playwright";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, join } from "node:path";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, stat } from "node:fs/promises";
+import { routes } from "../src/routes.config.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, "..");
 const distDir = resolve(projectRoot, "dist");
 
-// Rutas indexables. Se excluyen las páginas post-conversión (confirmaciones,
-// bienvenida), que no deben indexarse.
+// La home va ÚLTIMA a propósito. El preview sirve dist/index.html como fallback
+// de cualquier ruta, así que si se prerenderizara primero, las demás se
+// renderizarían encima del DOM ya horneado de la home en vez de sobre el shell
+// limpio del build. Es lo que venía pasando: /legal y /empleo se quedaban con
+// el title, la description y el canonical de la home.
 const ROUTES = [
+  ...routes.filter((route) => route.path !== "/").map((route) => route.path),
   "/",
-  "/embarazo",
-  "/posparto",
-  "/reserva",
-  "/empleo",
-  "/legal",
-  "/talleralimentacionmenopausia",
-  "/guiatallermenopausia",
 ];
+
+if (ROUTES.length < 2) {
+  console.error("prerender: routes.config.js no ha devuelto rutas. Se corta el build.");
+  process.exit(1);
+}
 
 const PORT = 4188;
 
@@ -74,8 +90,10 @@ async function prerender(routePath) {
   let html = await page.content();
   if (!/^<!doctype/i.test(html)) html = "<!doctype html>\n" + html;
 
-  const outPath =
-    routePath === "/" ? join(distDir, "index.html") : join(distDir, routePath, "index.html");
+  // "/" → dist/index.html. "/embarazo" → dist/embarazo.html (URL sin barra
+  // final, servida con 200 y sin redirect). "/404" → dist/404.html, que es el
+  // fichero que Netlify usa como página de error una vez retirado el catch-all.
+  const outPath = routePath === "/" ? join(distDir, "index.html") : join(distDir, `${routePath}.html`);
   await mkdir(dirname(outPath), { recursive: true });
   await writeFile(outPath, html, "utf8");
   return outPath.replace(distDir, "dist");
@@ -84,7 +102,8 @@ async function prerender(routePath) {
 try {
   for (const routePath of ROUTES) {
     const out = await prerender(routePath);
-    console.log(`  ✓ prerendered ${routePath.padEnd(30)} → ${out}`);
+    const { size } = await stat(join(projectRoot, out));
+    console.log(`  ✓ ${routePath.padEnd(32)} → ${out.padEnd(40)} ${(size / 1024).toFixed(1)} KB`);
   }
 } finally {
   await browser.close();
