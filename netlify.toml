@@ -25,11 +25,23 @@
 # Sin él, Netlify sirve dist/404.html con status 404 de forma automática para las
 # rutas que no existen. Ese fichero lo genera la ruta /404 de routes.config.js.
 
-# Cabeceras de seguridad. La CSP va en Report-Only a propósito: el sitio carga
-# GTM, Usercentrics, Meta Pixel, Google Fonts, el mapa de Google y el iframe de
-# reserva de Viday. Primero se recogen las violaciones reales en consola y luego
-# se pasa a `Content-Security-Policy` en un segundo commit; activarla a ciegas
-# puede tirar el banner de consentimiento o la reserva.
+# Cabeceras de seguridad. La CSP estuvo primero en Report-Only, y la tanda de
+# medición sobre producción (home sin y con consentimiento, /reserva con el
+# iframe de Viday, una página de servicio y /legal) devolvió seis violaciones
+# reales que ya están cubiertas aquí:
+#
+#   media-src       cdn2.gridded.agency  → el vídeo de ReviewsSection. Con la CSP
+#                   activada a ciegas, este vídeo se habría caído de la home.
+#   script-src      googleads.g.doubleclick.net → tag de Google Ads vía GTM.
+#   connect-src     region1.analytics.google.com, stats.g.doubleclick.net,
+#                   ad.doubleclick.net y www.google.com → medición de GA4 y Ads.
+#
+# Los comodines de analytics/doubleclick y www.google.es están porque GA4 y Ads
+# cambian de subdominio y de dominio de país según desde dónde se navegue: con
+# el host exacto que se observó un día, otro visitante rompería la medición.
+#
+# Si se añade un tag nuevo en GTM, es probable que haya que ampliar esta lista.
+# La forma de comprobarlo es volver a Report-Only y repetir la tanda.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -38,4 +50,4 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
-    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.usercentrics.eu https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://n8n.gridded.agency https://*.usercentrics.eu https://*.google-analytics.com https://*.googletagmanager.com https://connect.facebook.net; frame-src https://www.google.com https://reservaweb.viday.es https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.usercentrics.eu https://connect.facebook.net https://googleads.g.doubleclick.net https://www.googleadservices.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https://cdn2.gridded.agency; connect-src 'self' https://n8n.gridded.agency https://*.usercentrics.eu https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.doubleclick.net https://www.google.com https://www.google.es https://connect.facebook.net; frame-src https://www.google.com https://reservaweb.viday.es https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
