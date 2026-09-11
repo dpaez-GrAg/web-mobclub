@@ -342,3 +342,40 @@ negocio, no técnica.
 nuevos: `src/routes.config.js`, `src/pages/PilatesReformer.jsx`, `src/pages/PilatesSueloPelvico.jsx`,
 `src/pages/Servicio.css`, `scripts/gen-sitemap.mjs`, `scripts/gen-llms-txt.mjs`, `plan/`
 (con `plan/capturas/`), `ARREGLO_VISIBILIDAD/`.
+
+---
+
+## Hallazgo del 11-09-2026: el consentimiento está roto (ajeno a este plan)
+
+Salió al verificar la CSP y **no lo causa nada de lo que hay aquí**. La API pública de
+configuración de Usercentrics para el settings ID `nAvPFfvqszkW2y` devuelve:
+
+```
+lifecycleStatus = inactive
+```
+
+El loader carga, `UC_UI` se inicializa, y aun así el banner mide 0 px: el propio servicio
+considera esa configuración inactiva. Comprobado con una prueba A/B —la misma página cargada con
+la cabecera CSP y sin ella— con resultado idéntico en ambas, así que la política de seguridad
+queda descartada como causa.
+
+Reproducirlo:
+
+```bash
+curl -s https://api.usercentrics.eu/settings/nAvPFfvqszkW2y/latest/es.json | grep -o '"lifecycleStatus":"[^"]*"'
+```
+
+**Dos consecuencias que llevan tiempo ocurriendo:**
+
+1. **El Meta Pixel no se dispara nunca.** `index.html` lo activa escuchando `UC_UI_CMP_EVENT` de
+   aceptación; sin banner no hay aceptación, así que `fbq` no llega a existir. Las campañas de
+   Meta están sin datos de conversión ni audiencias de remarketing del sitio.
+2. **Google Consent Mode se queda en `denied`**, su valor por defecto. GA4 sigue enviando pings
+   sin cookies —de ahí el tráfico a `analytics.google.com` que apareció midiendo la CSP— pero con
+   datos degradados.
+
+Por el lado bueno: al no pasar nunca a `granted`, no se dejan cookies de marketing sin permiso.
+El incumplimiento no es por exceso, es que no hay forma de consentir.
+
+Se arregla en la cuenta de Usercentrics, no en el repo. Cuando se reactive, hay que repetir la
+tanda de CSP con el banner vivo: es el único camino que quedó sin verificar.
