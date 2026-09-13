@@ -1,5 +1,6 @@
 # Plan de visibilidad mobclub.es — Nivel 0 y Nivel 1
 
+> **ARCHIVADO el 13-09-2026.** Trabajo concluido y desplegado. Antes decía:
 > **CERRADO el 13-09-2026.** Ejecutado y desplegado. El resumen final está en
 > [Cierre](#cierre--13-09-2026); lo que sigue es el registro de por qué el código
 > quedó como quedó. Único cabo suelto, ajeno al plan: el CMP de Usercentrics.
