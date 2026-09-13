@@ -1,5 +1,9 @@
 # Plan de visibilidad mobclub.es — Nivel 0 y Nivel 1
 
+> **CERRADO el 13-09-2026.** Ejecutado y desplegado. El resumen final está en
+> [Cierre](#cierre--13-09-2026); lo que sigue es el registro de por qué el código
+> quedó como quedó. Único cabo suelto, ajeno al plan: el CMP de Usercentrics.
+
 ## Contexto
 
 YAG Comunicación mandó una auditoría comercial (`ARREGLO_VISIBILIDAD/Informe-Mobclub-qui-n-gana-visibilidad-cuando-os.pdf`, 8 pág., agosto 2026): Mobclub tiene 5,0★ con 50 reseñas pero no sale en el top 10 orgánico para «centro de pilates en A Coruña», y El Centro Pilates, Omma y Sendo sí. Proponen quick wins de seguridad, páginas por servicio, `llms.txt` y SEO local.
@@ -309,39 +313,57 @@ Contra producción (branch deploy, o `npx netlify-cli deploy --build`):
 
 ---
 
-## Lo que queda abierto (actualizado 11-09-2026, tras montar N1.2)
+## Cierre — 13-09-2026
 
-**Resuelto en la revisión del copy que hizo Diego** — ya está dentro de las páginas:
+**Plan terminado.** Todo lo que dependía del repositorio está desplegado en producción y
+verificado contra `mobclub.es`, no contra `dist/`.
 
-- ~~¿En cuánto tiempo notan mejoría?~~ → «Puedes tardar cuatro semanas o cuatro meses». Es una FAQ.
-- ~~¿Derivas a fisioterapeuta?~~ → sí, y está en «Para quién no es esto» y en la FAQ.
-- ~~¿Valoración específica o general?~~ → general, y así lo dice el cierre de la página.
-- ~~¿Qué máquinas?~~ → set completo de pilates clásico, en la página 1.
+| Nivel | Estado |
+|---|---|
+| Nivel 0 · fundamentos | ✅ completo (N0.8, medición, descartado por decisión de Diego) |
+| Nivel 1 · contenido | ✅ N1.1 y N1.2 completos. N1.3 cerrado sin tocar la home |
+| Off-site | Search Console y Bing con el sitemap enviado el 11-09-2026 |
 
-**Ya no hay nada bloqueado por datos de negocio.** El 11-09-2026 se cerraron los dos últimos:
-el `Person` queda descartado a propósito, y la frase de definición ya está publicada en los tres
-sitios.
+**Cinco commits, todos en `main` y desplegados:**
 
-**Pendiente de ejecución, sin bloqueos:**
+```
+b5518e9  fuente única de rutas, 404 real, cabeceras y dos páginas de servicio
+610b115  CSP de Report-Only a enforce, con las seis violaciones reales cubiertas
+008505b  plan: Nivel 0 desplegado y verificado
+07201f5  plan: documentado que el CMP de Usercentrics está inactivo
+5fad438  sacar del índice las dos páginas de taller
+```
 
-- **Desplegar.** Nada de esto está en producción todavía: ni el Nivel 0 ni las dos páginas.
-- Verificar contra producción los 11 puntos del criterio de terminado (200/404 reales, cabeceras,
-  ausencia de 301, `/.git/config` → 404, `llms.txt` como `text/plain`).
-- Revisar las violaciones de la CSP en producción y pasar de `Report-Only` a enforce.
-- **N1.3**: la keyword ya entra en la home por la frase de definición («centro de pilates con
-  máquinas de A Coruña»), en texto visible y sin tocar ningún encabezado. Queda solo pasar los
-  precios de la home a tabla, que cambia el aspecto de esa sección: decisión de Diego.
-- **Commitear.** Nada está commiteado.
+**Qué cambió en producción**
 
-**Decisión pendiente:** `/empleo` y los dos talleres están confirmados como páginas de venta
-obsoletas. Si se quieren fuera del índice, es cambiar `indexable: false` en `routes.config.js` y
-salen del sitemap y de `llms.txt` con noindex. No se ha hecho porque desindexar es una decisión de
-negocio, no técnica.
+| | Antes | Ahora |
+|---|---|---|
+| URL inexistente | 200 con el HTML de la home | 404 real |
+| Cada página interna | 301 con canonical contradictorio | 200 directo |
+| Cabeceras de seguridad | 1 de 6 | 6 de 6, CSP en enforce |
+| Páginas duplicando la home | `/legal` y `/empleo` | ninguna |
+| `sitemap.xml` | 4 URLs sin `lastmod` | 8 URLs con fecha real |
+| `llms.txt` | no existía | generado en cada build |
+| Páginas de servicio | 0 | 2, con `Service` + `FAQPage` |
+| Entidad | sin frase definitoria | la misma frase en HTML, schema y `llms.txt` |
 
-**Estado del repo:** Nivel 0 y N1.2 están en el árbol de trabajo **sin commitear**. Ficheros
-nuevos: `src/routes.config.js`, `src/pages/PilatesReformer.jsx`, `src/pages/PilatesSueloPelvico.jsx`,
-`src/pages/Servicio.css`, `scripts/gen-sitemap.mjs`, `scripts/gen-llms-txt.mjs`, `plan/`
-(con `plan/capturas/`), `ARREGLO_VISIBILIDAD/`.
+**Decisiones que quedan registradas, para no volver sobre ellas:**
+
+- El **bucle de medición (N0.8) se descarta**. Sin él, dentro de tres meses no habrá forma de
+  demostrar qué funcionó; es una decisión consciente, no un olvido.
+- El **`Person` con credenciales se descarta**: el negocio no se guía por titulaciones.
+- Los **precios de la home no pasan a tabla**: el dato ya es extraíble por el JSON-LD y por la
+  tabla de `/pilates-reformer-a-coruna`.
+- **`/empleo` sigue indexable**; los dos talleres, no.
+
+**Lo único que sigue abierto, y no es de este plan:** el CMP de Usercentrics continúa
+`inactive` (comprobado el 13-09-2026). Mientras siga así, el Meta Pixel no se dispara y queda sin
+verificar que la CSP no lo bloquee. Detalle en el hallazgo de abajo.
+
+**Cuándo mirar esto otra vez:** a las 3-4 semanas, en Search Console, si
+`/pilates-reformer-a-coruna` y `/pilates-suelo-pelvico-a-coruna` han empezado a recibir
+impresiones y con qué consultas. Es lo que dirá si las dos páginas atacan la intención correcta o
+hay que reescribir titles.
 
 ---
 
