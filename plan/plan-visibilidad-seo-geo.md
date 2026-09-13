@@ -322,7 +322,7 @@ verificado contra `mobclub.es`, no contra `dist/`.
 |---|---|
 | Nivel 0 · fundamentos | ✅ completo (N0.8, medición, descartado por decisión de Diego) |
 | Nivel 1 · contenido | ✅ N1.1 y N1.2 completos. N1.3 cerrado sin tocar la home |
-| Off-site | Search Console y Bing con el sitemap enviado el 11-09-2026 |
+| Off-site | Search Console con el sitemap enviado el 11-09-2026. Bing, el 13-09-2026 |
 
 **Cinco commits, todos en `main` y desplegados:**
 
